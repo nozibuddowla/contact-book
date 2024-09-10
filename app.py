@@ -1,21 +1,22 @@
-# contact_book = [
-#     {
-#         'name': 'Nozib',
-#         'phone': '01922438860',
-#         'email': 'nozibuddowla@gmail.com'
-#     }, 
-#     {
-#         'name': 'Niloy',
-#         'phone': '01781858209',
-#         'email': 'niloyfardinahmed@gmail.com'
-#     },
-#     {
-#         'name': 'Rafat',
-#         'phone': '01715226693',
-#         'email': 'sfkrafat3@gmail.com'
-#     },
-# ]
-contact_book = []
+contact_book = [
+    {
+        'name': 'Nozib',
+        'phone': '01922438860',
+        'email': 'nozibuddowla@gmail.com'
+    }, 
+    {
+        'name': 'Niloy',
+        'phone': '01781858209',
+        'email': 'niloyfardinahmed@gmail.com'
+    },
+    {
+        'name': 'Rafat',
+        'phone': '01715226693',
+        'email': 'sfkrafat3@gmail.com'
+    },
+]
+
+# contact_book = []
 
 def create_contact():
     name = input('Enter name: ').strip()
@@ -31,7 +32,13 @@ def create_contact():
     contact_book.append(contact)
     print('contact created successfully!')
 
-create_contact()
-create_contact()
+# create_contact()
+# create_contact()
 
-print(contact_book)
+# print(contact_book)
+
+def view_all_contact():
+    for contact in contact_book:
+        print(contact['name'], contact['phone'], contact['email'], sep='|')
+
+view_all_contact()
