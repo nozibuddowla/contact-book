@@ -14,6 +14,12 @@ contact_book = [
         'phone': '01715226693',
         'email': 'sfkrafat3@gmail.com'
     },
+    {
+        'name': 'Jinat',
+        'phone': '01643660509',
+        'email': 'jinatsultana47@gmail.com'
+    },
+    
 ]
 
 # contact_book = []
@@ -33,7 +39,6 @@ def create_contact():
     print('contact created successfully!')
 
 # create_contact()
-# create_contact()
 
 # print(contact_book)
 
@@ -49,4 +54,15 @@ def search_contacts():
         if search_term.lower() in contact['name'].lower(): 
             print(f"Found: {contact['name']} - {contact['phone']}")
 
-search_contacts()
+# search_contacts()
+
+def remove_contact():
+    search_term = input('Enter text to search: ').strip()
+    for index, contact in enumerate(contact_book):
+        if search_term.lower() in contact['name'].lower():
+            print(f" {index+1}. {contact['name']} - {contact['phone']} ")
+    selected_index = int(input('Enter an contact to remove: ').strip())
+    contact_book.pop(selected_index - 1)
+
+# remove_contact()
+# view_all_contact()
