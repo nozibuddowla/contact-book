@@ -38,23 +38,15 @@ def create_contact():
     contact_book.append(contact)
     print('contact created successfully!')
 
-# create_contact()
-
-# print(contact_book)
-
 def view_all_contact():
     for contact in contact_book:
         print(contact['name'], contact['phone'], contact['email'], sep='|')
-
-# view_all_contact()
 
 def search_contacts():
     search_term = input('Enter what you want to search: ').strip()
     for contact in contact_book:
         if search_term.lower() in contact['name'].lower(): 
             print(f"Found: {contact['name']} - {contact['phone']}")
-
-# search_contacts()
 
 def remove_contact():
     search_term = input('Enter text to search: ').strip()
@@ -64,5 +56,29 @@ def remove_contact():
     selected_index = int(input('Enter an contact to remove: ').strip())
     contact_book.pop(selected_index - 1)
 
-# remove_contact()
-# view_all_contact()
+print('Welcome!')
+menu_text = """
+Options:
+1. Create Contact
+2. View all Contacts
+3. Search Contacts
+4. Remove Contact
+5. Exit
+"""
+
+while True:
+    print(menu_text)
+    choice = input('Enter you choice: ').strip()
+    
+    if choice == "1":
+        create_contact()
+    elif choice == '2':
+        view_all_contact()
+    elif choice == '3':
+        search_contacts()
+    elif choice == '4':
+        remove_contact()
+    elif choice == '5':
+        break
+    else:
+        print('Wrong Choice!')
