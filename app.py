@@ -1,28 +1,4 @@
-contact_book = [
-    {
-        'name': 'Nozib',
-        'phone': '01922438860',
-        'email': 'nozibuddowla@gmail.com'
-    }, 
-    {
-        'name': 'Niloy',
-        'phone': '01781858209',
-        'email': 'niloyfardinahmed@gmail.com'
-    },
-    {
-        'name': 'Rafat',
-        'phone': '01715226693',
-        'email': 'sfkrafat3@gmail.com'
-    },
-    {
-        'name': 'Jinat',
-        'phone': '01643660509',
-        'email': 'jinatsultana47@gmail.com'
-    },
-    
-]
-
-# contact_book = []
+contact_book = []
 
 def create_contact():
     name = input('Enter name: ').strip()
@@ -91,6 +67,20 @@ def backup_contact():
     
     print('contacts backed up!')
 
+def restore_contact():
+    contact_book.clear()
+    with open('contacts.csv', 'r') as file_pointer:
+        for line in file_pointer.readlines():
+            line_splitted = line.strip().split(',')
+            contact = {
+                'name': line_splitted[0],
+                'phone': line_splitted[1],
+                'email': line_splitted[2],
+            }
+            contact_book.append(contact)
+
+    print('Contacts Restored!')
+
 print('Welcome!')
 
 menu_text = """
@@ -101,6 +91,7 @@ Options:
 4. Remove Contact
 5. Update Contact
 6. Backup Contact
+7. Restore Contact
 0. Exit
 """
 
@@ -120,6 +111,8 @@ while True:
         update_contact()
     elif choice == '6':
         backup_contact()
+    elif choice == '7':
+        restore_contact()
     elif choice == '0':
         break
     else:
