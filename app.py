@@ -83,7 +83,16 @@ def update_contact():
     })
     print('Contact updated successfully!')
 
+def backup_contact():
+    with open('contacts.csv', 'wt') as file_pointer:
+        for contact in contact_book:
+            line = f"{contact['name']},{contact['phone']},{contact['email']}\n"
+            file_pointer.write(line)
+    
+    print('contacts backed up!')
+
 print('Welcome!')
+
 menu_text = """
 Options:
 1. Create Contact
@@ -91,6 +100,7 @@ Options:
 3. Search Contacts
 4. Remove Contact
 5. Update Contact
+6. Backup Contact
 0. Exit
 """
 
@@ -108,6 +118,8 @@ while True:
         remove_contact()
     elif choice == '5':
         update_contact()
+    elif choice == '6':
+        backup_contact()
     elif choice == '0':
         break
     else:
